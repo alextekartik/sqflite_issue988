@@ -53,4 +53,8 @@ android/
 ios/
 linux/
 windows/
-macox/
+macos/
+web/
+
+/pubspec.lock
+/.metadata

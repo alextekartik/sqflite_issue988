@@ -33,6 +33,8 @@ dependencies:
   faker:
   sqflite:
   sqflite_common_ffi:
+  sqflite_common:
+  path:
   sqlite3_flutter_libs:
   path_provider:
 

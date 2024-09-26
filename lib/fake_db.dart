@@ -1,8 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:faker/faker.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:path/path.dart';
 import 'package:sqflite_common/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';

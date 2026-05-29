@@ -58,8 +58,11 @@ class FakeDB {
     );
 
     // Open a second instance for read access.
-    databaseReadOnly =
-        await openDatabase(path, readOnly: true, singleInstance: false);
+    databaseReadOnly = await openDatabase(
+      path,
+      readOnly: true,
+      singleInstance: false,
+    );
     print("DB CREATED !");
 
     print("DB creating fake data...");
@@ -72,16 +75,13 @@ class FakeDB {
       int batchLenght = 0;
       for (int index = 0; index < maxNumberOfItem; ++index) {
         final Faker fake = Faker();
-        batch.insert(
-          "users",
-          <String, dynamic>{
-            "id": index,
-            "firstname": fake.person.firstName(),
-            "lastname": fake.person.lastName(),
-            "email": fake.internet.email(),
-            "last_connection": 0,
-          },
-        );
+        batch.insert("users", <String, dynamic>{
+          "id": index,
+          "firstname": fake.person.firstName(),
+          "lastname": fake.person.lastName(),
+          "email": fake.internet.email(),
+          "last_connection": 0,
+        });
         if (batchLenght > batchInsertSteps) {
           print("current-index: $index");
           await batch.commit(noResult: true);
@@ -92,13 +92,7 @@ class FakeDB {
         }
       }
 
-      batch.insert(
-        "sports",
-        <String, dynamic>{
-          "id": 0,
-          "name": "football",
-        },
-      );
+      batch.insert("sports", <String, dynamic>{"id": 0, "name": "football"});
 
       print(batch.length);
       await batch.commit();
@@ -117,13 +111,9 @@ class FakeDB {
     final Stopwatch watch = Stopwatch()..start();
     print("LONG UPDATE START");
     final Batch batch = database!.batch();
-    batch.update(
-      "users",
-      <String, dynamic>{
-        "last_connection": DateTime.now().millisecondsSinceEpoch,
-      },
-      where: "id between 1 and $maxNumberOfItem",
-    );
+    batch.update("users", <String, dynamic>{
+      "last_connection": DateTime.now().millisecondsSinceEpoch,
+    }, where: "id between 1 and $maxNumberOfItem");
     await batch.commit(noResult: true);
     watch.stop();
     print("LONG UPDATE DONE: ${watch.elapsedMilliseconds}");

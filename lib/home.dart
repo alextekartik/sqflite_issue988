@@ -18,9 +18,7 @@ class Home extends StatelessWidget {
               },
               child: const Text(
                 "Open DB",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ElevatedButton(
@@ -29,9 +27,7 @@ class Home extends StatelessWidget {
               },
               child: const Text(
                 "Long update query",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ElevatedButton(
@@ -40,9 +36,7 @@ class Home extends StatelessWidget {
               },
               child: const Text(
                 "Short select query",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const Divider(),
@@ -52,9 +46,7 @@ class Home extends StatelessWidget {
               },
               child: const Text(
                 "Delete DB",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
